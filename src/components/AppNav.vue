@@ -8,7 +8,6 @@
         <a href="" class="text-sm inline-block p-3 text-gray-800">Your files</a>
       </li>
     </ul>
-
     <ul class="flex items-center">
       <li>
         <router-link :to="{name: 'login'}" class="text-sm inline-block p-3 text-gray-800">Sign In</router-link>
@@ -21,7 +20,13 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user",
+    })
+  }
 }
 </script>
