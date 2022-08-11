@@ -9,12 +9,22 @@
       </li>
     </ul>
     <ul class="flex items-center">
-      <li>
-        <router-link :to="{name: 'login'}" class="text-sm inline-block p-3 text-gray-800">Sign In</router-link>
-      </li>
-      <li>
-        <a href="" class="text-sm inline-block p-3 text-gray-800">Create account</a>
-      </li>
+      <template v-if="!authenticated">
+        <li>
+          <router-link :to="{name: 'login'}" class="text-sm inline-block p-3 text-gray-800">Sign In</router-link>
+        </li>
+        <li>
+          <a href="" class="text-sm inline-block p-3 text-gray-800">Create account</a>
+        </li>
+      </template>
+      <template v-else>
+        <li>
+          <a href="" class="text-sm inline-block p-3 text-gray-800">Account</a>
+        </li>
+        <li>
+          <a href="" class="text-sm inline-block p-3 text-gray-800">Log out</a>
+        </li>
+      </template>
     </ul>
   </header>
 </template>
